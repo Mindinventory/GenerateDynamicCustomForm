@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FooterView" customModule="CommonLRF" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhc-Cj-DNj">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo6-n8-uoM">
+                            <rect key="frame" x="95" y="10" width="130" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.89074176540000005" blue="0.91521673960000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="uo6-n8-uoM" secondAttribute="height" multiplier="13:4" id="wTK-fw-elb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.27283306530000001" green="0.41091266920000002" blue="0.61314474679999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="uo6-n8-uoM" firstAttribute="centerY" secondItem="nhc-Cj-DNj" secondAttribute="centerY" id="Nfd-R0-Gl3"/>
+                        <constraint firstItem="uo6-n8-uoM" firstAttribute="centerX" secondItem="nhc-Cj-DNj" secondAttribute="centerX" id="bft-9u-aGk"/>
+                        <constraint firstItem="uo6-n8-uoM" firstAttribute="width" secondItem="nhc-Cj-DNj" secondAttribute="width" multiplier="0.40625" id="sYC-gU-8tO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="nhc-Cj-DNj" secondAttribute="bottom" id="8WL-do-s3H"/>
+                <constraint firstItem="nhc-Cj-DNj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Zlw-42-V8D"/>
+                <constraint firstItem="nhc-Cj-DNj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="m49-3h-RRi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nhc-Cj-DNj" secondAttribute="trailing" id="tsU-Af-kb6"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnSubmit" destination="uo6-n8-uoM" id="PsF-fH-lPr"/>
+            </connections>
+            <point key="canvasLocation" x="131.25" y="84.507042253521121"/>
+        </view>
+    </objects>
+</document>
