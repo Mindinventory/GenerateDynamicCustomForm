@@ -11,11 +11,11 @@ You can generate a dynamic form view in a few minutes for signup, add a record. 
 - [By Apple](#by-apple)
 - [License](#license)
     
-## Description :-
+## Description
 
 In this form there are various textFields like Username, email, Password, etc. it has validations also, if validation passes then user can submit form. If any validation doesn't pass then we are showing the validation using the label. The changes are reactive to the textField changes. User can also edit the form and can view changes.
 
-## Features :-
+## Features
 
 - TextField with different types like email, password, mobile number.
 - Profile Photo and Banner selection.
