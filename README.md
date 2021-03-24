@@ -1,6 +1,6 @@
 # GenerateDynamicCustomForm
 
-<a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html" style="pointer-events: stroke;" target="_blank">
+<a href="https://docs.swift.org/swift-book/" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/swift-5.0-yellowgreen">
 </a>
 <a href="#" style="pointer-events: stroke;" target="_blank">
