@@ -1,8 +1,18 @@
 # GenerateDynamicCustomForm
 
+<a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html" style="pointer-events: stroke;" target="_blank">
+<img src="https://img.shields.io/badge/swift-5.0-yellowgreen">
+</a>
+<a href="https://github.com/ashishpatelmi/GenerateDynamicCustomForm/blob/main/LICENSE" style="pointer-events: stroke;" target="_blank">
+<img src="https://img.shields.io/badge/platform-iOS-red">
+</a>
+<a href="https://github.com/ashishpatelmi/GenerateDynamicCustomForm/blob/main/LICENSE" style="pointer-events: stroke;" target="_blank">
+<img src="https://img.shields.io/badge/licence-MIT.-orange">
+</a>
+
 You can generate a dynamic form view in a few minutes for signup, add a record. Creating a form is very easy.
 
-![video](/Media/form.gif)
+![video](/Media/myform.gif)
 
 ## Table of content :-
 
