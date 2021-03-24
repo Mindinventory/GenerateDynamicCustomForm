@@ -15,6 +15,24 @@ final class CollMultiplePhotos: UICollectionView {
         }
     }
     
+    override var contentSize:CGSize {
+        didSet {
+            self.invalidateIntrinsicContentSize()
+        }
+    }
+    
+    //    override func layoutSubviews() {
+    //        super.layoutSubviews()
+    //
+    //        if bounds.size != intrinsicContentSize {
+    //            self.invalidateIntrinsicContentSize()
+    //        }
+    //    }
+    
+    override var intrinsicContentSize: CGSize {
+        return collectionViewLayout.collectionViewContentSize
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,14 +48,13 @@ extension CollMultiplePhotos {
         
         dataSource = self
         delegate = self
-        
         register(MultiPhotoCollCell.nib, forCellWithReuseIdentifier: MultiPhotoCollCell.identifier)
     }
 }
 
 //MARK:- Initialize
 //MARK:-
-extension CollMultiplePhotos: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CollMultiplePhotos: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

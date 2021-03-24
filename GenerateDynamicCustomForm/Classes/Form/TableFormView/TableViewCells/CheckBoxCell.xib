@@ -10,54 +10,53 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CheckBoxCell" id="KGk-i7-Jjw" customClass="CheckBoxCell" customModule="CommonLRF" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CheckBoxCell" id="KGk-i7-Jjw" customClass="CheckBoxCell" customModule="GenerateDynamicCustomForm" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YR-Fg-s5k">
-                        <rect key="frame" x="16" y="5" width="288" height="45"/>
+                        <rect key="frame" x="16" y="5" width="288" height="44"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V5R-Gc-uK9">
-                                <rect key="frame" x="8" y="5" width="272" height="35"/>
+                                <rect key="frame" x="0.0" y="10" width="280" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Terms and Conditions" image="ic_uncheck">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="onCheck:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="L8e-PT-D09"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.27283306530000001" green="0.41091266920000002" blue="0.61314474679999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="V5R-Gc-uK9" firstAttribute="leading" secondItem="8YR-Fg-s5k" secondAttribute="leading" constant="8" id="1Ct-wj-vYh"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="EYR-NQ-JOw"/>
-                            <constraint firstAttribute="trailing" secondItem="V5R-Gc-uK9" secondAttribute="trailing" constant="8" id="fFd-wu-Fdt"/>
-                            <constraint firstItem="V5R-Gc-uK9" firstAttribute="top" secondItem="8YR-Fg-s5k" secondAttribute="top" constant="5" id="kb0-hH-SAE"/>
-                            <constraint firstAttribute="bottom" secondItem="V5R-Gc-uK9" secondAttribute="bottom" constant="5" id="rHf-8h-PRe"/>
+                            <constraint firstAttribute="height" constant="44" id="AGx-pY-e2I"/>
+                            <constraint firstItem="V5R-Gc-uK9" firstAttribute="leading" secondItem="8YR-Fg-s5k" secondAttribute="leading" id="dDg-ah-5fX"/>
+                            <constraint firstItem="V5R-Gc-uK9" firstAttribute="centerY" secondItem="8YR-Fg-s5k" secondAttribute="centerY" id="eAC-dg-xTf"/>
+                            <constraint firstAttribute="trailing" secondItem="V5R-Gc-uK9" secondAttribute="trailing" constant="8" id="xtl-Bg-7fg"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" red="0.91562683410000001" green="0.90789337709999995" blue="0.71189101720000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="1"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.27283306530000001" green="0.41091266920000002" blue="0.61314474679999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="8YR-Fg-s5k" secondAttribute="bottom" constant="6" id="J7E-Ph-ye5"/>
                     <constraint firstItem="8YR-Fg-s5k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Nre-II-2Ol"/>
                     <constraint firstItem="8YR-Fg-s5k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="TSt-ep-7JX"/>
-                    <constraint firstAttribute="bottom" secondItem="8YR-Fg-s5k" secondAttribute="bottom" id="TU0-ld-PnJ"/>
                     <constraint firstAttribute="trailing" secondItem="8YR-Fg-s5k" secondAttribute="trailing" constant="16" id="uW4-aX-OhS"/>
                 </constraints>
             </tableViewCellContentView>
@@ -65,7 +64,7 @@
             <connections>
                 <outlet property="btnCheck" destination="V5R-Gc-uK9" id="gph-51-wSS"/>
             </connections>
-            <point key="canvasLocation" x="-197.10144927536234" y="84.040178571428569"/>
+            <point key="canvasLocation" x="-197.10144927536234" y="83.370535714285708"/>
         </tableViewCell>
     </objects>
     <resources>

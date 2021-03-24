@@ -9,7 +9,9 @@ import UIKit
 
 final class MobileNumberCell: UITableViewCell {
     
-    @IBOutlet weak private var cnstWidthCode: NSLayoutConstraint!
+    @IBOutlet weak private var vwMobNoLine: UIView!
+    @IBOutlet weak private var vwcntryLine: UIView!
+    @IBOutlet weak private var lblPlaceHolder: UILabel!
     @IBOutlet weak private var txtCntryCode: UITextField!
     @IBOutlet weak private var txtMobNO: UITextField!
     
@@ -24,7 +26,6 @@ final class MobileNumberCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        txtMobNO.delegate = self
     }
     
     deinit {
@@ -36,57 +37,29 @@ final class MobileNumberCell: UITableViewCell {
 //MARK:-
 extension MobileNumberCell {
     
-    func configureCell(data: FormModel, code: [String], flag: Bool, isValid: Bool) {
+    func configureCell(data: FormModel, code: [String], flag: Bool) {
         
-        if isValid {
-            
-            txtMobNO.layer.borderColor = UIColor.init(red: 235/255, green: 231/255, blue: 186/255, alpha: 1.0).cgColor
-            txtMobNO.placeholder = data.placeHolder
-            txtMobNO.placeholderColor = data.placeHolderColor
+        if data.isValid ?? true {
+            lblPlaceHolder.text = data.placeHolder
+            lblPlaceHolder.textColor = data.placeHolderColor
             
         } else {
-            
-            txtMobNO.layer.borderColor = UIColor.red.cgColor
-            txtMobNO.placeholder = "Please Enter Value"
-            txtMobNO.placeholderColor = UIColor.white.withAlphaComponent(0.6)
+            lblPlaceHolder.text = "Please Enter Mobile Number *"
+            lblPlaceHolder.textColor = UIColor.red
         }
         
+        txtMobNO.placeholder = data.placeHolder2
         txtMobNO.text = data.value
         txtCntryCode.text = cntryCode ?? "+91"
-        txtMobNO.placeholder = data.placeHolder
         txtMobNO.keyboardType = data.keyboardType ?? .default
+        
         txtCntryCode.setPickerData(arrPickerData: code, pickerDataHandler: { (select, index, component) in
         })
         
         if flag == true {
             
             txtCntryCode.textAlignment = .right
-            cnstWidthCode.constant = 86
             txtCntryCode.setupLeftImageView(img: UIImage(named: "ic_india"))
-        }
-    }
-}
-
-//MARK:- UITextFieldDelegate
-//MARK:-
-extension MobileNumberCell: UITextFieldDelegate {
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if txtMobNO.text == "" {
-            
-            txtMobNO.layer.borderColor = UIColor.red.cgColor
-            txtMobNO.placeholder = "Please Enter Value"
-            txtMobNO.placeholderColor = UIColor.white.withAlphaComponent(0.6)
-            isValidate = false
-            txtMobNoValidateHandler?(isValidate ?? false)
-            txtMobNO.shake()
-            
-        } else {
-            
-            txtMobNO.layer.borderColor = UIColor.init(red: 235/255, green: 231/255, blue: 186/255, alpha: 1.0).cgColor
-            isValidate = true
-            txtMobNoValidateHandler?(isValidate ?? true)
         }
     }
 }
@@ -97,8 +70,25 @@ extension MobileNumberCell {
     
     @IBAction func onMobNoValueChanged(_ sender: UITextField) {
         
-        if txtMobNoHandler != nil {
-            txtMobNoHandler?(txtMobNO)
+        if txtMobNO.text == "" {
+            
+            lblPlaceHolder.text = "Please Enter Mobile Number *"
+            lblPlaceHolder.textColor = UIColor.red
+            isValidate = false
+            txtMobNoValidateHandler?(isValidate ?? false)
+            txtMobNO.shake()
+            
+        } else {
+            
+            isValidate = true
+            lblPlaceHolder.text = placeHolderMobNo
+            lblPlaceHolder.textColor = UIColor.darkGray
+            
+            if txtMobNoHandler != nil {
+                txtMobNoHandler?(txtMobNO)
+            }
+            
+            txtMobNoValidateHandler?(isValidate ?? true)
         }
     }
     

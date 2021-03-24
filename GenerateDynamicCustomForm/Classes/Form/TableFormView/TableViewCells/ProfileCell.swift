@@ -48,7 +48,7 @@ extension ProfileCell {
     
     func configureCell(user: UIImage?, banner: UIImage?) {
         
-        imgUser.image = user ?? UIImage(named: "ic_camera")
+        imgUser.image = user ?? UIImage(named: "ic_user3")
         imgBanner.image = banner ?? UIImage(named: "ic_banner")
     }
 }

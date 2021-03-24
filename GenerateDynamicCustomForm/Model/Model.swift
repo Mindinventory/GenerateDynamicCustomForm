@@ -37,12 +37,14 @@ struct FormModel {
     var txtFieldType: TextFieldType?
     var value: String?
     var placeHolder: String?
+    var placeHolder2: String?
     var placeHolderColor: UIColor?
     var leftImgView: String?
     var rightImgView: String?
     var isEnabled: Bool?
     var isSecure: Bool?
     var keyboardType: UIKeyboardType?
+    var isValid: Bool?
 }
 
 struct ProfileImageModel {
@@ -75,13 +77,13 @@ struct MultiPhotoModel {
 
 //MARK:- PlaceHolder Constants
 //MARK:-
-let placeHolderName = "Enter Name"
-let placeHolderEmail = "Enter Email Address"
-let placeHolderPassword = "Enter Password"
-let placeHolderMobNo = "Enter Mobile Number"
-let placeHolderDob = "Select Birth Date DD/MM/YYYY"
-let placeHolderDept = "Select Department"
-let placeHolderGender = "Select Gender"
-let placeHolderAddress = "Enter Address"
-let placeHolderHobbies = "Select Hobbies"
-let placeHolderCountry = "Select Country"
+let placeHolderName = "Name*"
+let placeHolderEmail = "Email Address*"
+let placeHolderPassword = "Password*"
+let placeHolderMobNo = "Mobile Number*"
+let placeHolderDob = "Birth Date"
+let placeHolderDept = "Department"
+let placeHolderGender = "Gender"
+let placeHolderAddress = "Address"
+let placeHolderHobbies = "Hobbies"
+let placeHolderCountry = "Country"

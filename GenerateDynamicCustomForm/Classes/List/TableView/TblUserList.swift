@@ -49,7 +49,7 @@ extension TblUserList: UITableViewDataSource, UITableViewDelegate {
         
         if let userCell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell {
             
-            guard let index = userData[indexPath.row].firstIndex(where: { $0.placeHolder == "Enter Name" }) else { return UITableViewCell() }
+            guard let index = userData[indexPath.row].firstIndex(where: { $0.placeHolder == "Name*" }) else { return UITableViewCell() }
             
             userCell.configureCell(data: userData[indexPath.row][index].value)
             

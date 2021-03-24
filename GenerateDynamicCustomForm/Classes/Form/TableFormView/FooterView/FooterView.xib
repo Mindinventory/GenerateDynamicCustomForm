@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FooterView" customModule="CommonLRF" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FooterView" customModule="GenerateDynamicCustomForm" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -19,13 +19,13 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uo6-n8-uoM">
                             <rect key="frame" x="95" y="10" width="130" height="40"/>
-                            <color key="backgroundColor" red="1" green="0.89074176540000005" blue="0.91521673960000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.48017456136834569" green="0.29789206570854665" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="uo6-n8-uoM" secondAttribute="height" multiplier="13:4" id="wTK-fw-elb"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <state key="normal" title="Submit">
-                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -40,7 +40,6 @@
                             </userDefinedRuntimeAttributes>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.27283306530000001" green="0.41091266920000002" blue="0.61314474679999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="uo6-n8-uoM" firstAttribute="centerY" secondItem="nhc-Cj-DNj" secondAttribute="centerY" id="Nfd-R0-Gl3"/>
                         <constraint firstItem="uo6-n8-uoM" firstAttribute="centerX" secondItem="nhc-Cj-DNj" secondAttribute="centerX" id="bft-9u-aGk"/>

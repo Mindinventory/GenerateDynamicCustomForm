@@ -26,8 +26,9 @@ final class MultiPhotoCell: UITableViewCell {
         CGCDMainThread.async { [weak self] in
             
             guard let `self` = self else { return }
+            
             self.btnAdd.roundView()
-            self.btnAdd.shadow(color: .black, shadowOffset: CGSize(width: 3.0, height: 3.0), shadowRadius: 8.0)
+            self.btnAdd.shadow(color: .black, shadowOffset: .zero, shadowRadius: 8.0, shadowOpacity: 0.5)
         }
     }
 }
@@ -43,13 +44,9 @@ extension MultiPhotoCell {
         CGCDMainThread.async { [weak self] in
             
             guard let `self` = self else { return }
-            
-            if images.count > 0 {
-                self.lblPhotosCount.textColor = .white
-            } else {
-                self.lblPhotosCount.textColor = UIColor.white.withAlphaComponent(0.6)
-            }
+            self.lblPhotosCount.textColor = UIColor.darkGray
         }
+        
         initializeCollView(multiImg: images)
     }
 }
@@ -70,7 +67,7 @@ extension MultiPhotoCell {
             } else {
                 self.images.append(image ?? UIImage())
                 self.lblPhotosCount.text = "\(self.images.count) Photos Selected"
-                self.lblPhotosCount.textColor = .white
+                self.lblPhotosCount.textColor = .darkGray
                 self.initializeCollView(multiImg: self.images)
                 self.multiImgHandler?(self.images)
             }

@@ -49,7 +49,8 @@ extension TblFormView {
         
         delegate = self
         dataSource = self
-        
+        estimatedRowHeight = 160.0
+        rowHeight = UITableView.automaticDimension
         register(ProfileCell.nib, forCellReuseIdentifier: ProfileCell.identifier)
         register(InfoCell.nib, forCellReuseIdentifier: InfoCell.identifier)
         register(MobileNumberCell.nib, forCellReuseIdentifier: MobileNumberCell.identifier)
@@ -85,12 +86,12 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                         mobNoCell.cntryCode = countryCode
                     }
                     
-                    let isvalid = mobNoCell.isValidate ?? true
+                    //let isvalid = mobNoCell.isValidate ?? true
                     
                     if txtFieldModel[indexPath.row].txtFieldType == .mobileNumber(true) {
-                        mobNoCell.configureCell(data: txtFieldModel[indexPath.row], code: cntryCode, flag: true, isValid: isvalid)
+                        mobNoCell.configureCell(data: txtFieldModel[indexPath.row], code: cntryCode, flag: true)
                     } else {
-                        mobNoCell.configureCell(data: txtFieldModel[indexPath.row], code: cntryCode, flag: false, isValid: isvalid)
+                        mobNoCell.configureCell(data: txtFieldModel[indexPath.row], code: cntryCode, flag: false)
                     }
                     
                     mobNoCell.CntryCodeHandler = { [weak self] textFieldcode in
@@ -109,6 +110,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                         
                         guard let `self` = self else { return }
                         self.isValidate = isValidated
+                        self.txtFieldModel[indexPath.row].isValid = isValidated
                     }
                     
                     return mobNoCell
@@ -118,9 +120,9 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                 
                 if let infocell = tableView.dequeueReusableCell(withIdentifier: InfoCell.identifier) as? InfoCell {
                     
-                    let isvalid = infocell.isValidate ?? true
+                    //let isvalid = infocell.isValidate ?? true
                     
-                    infocell.configureCell(data: txtFieldModel[indexPath.row], pickerData: pickerData, isValid: isvalid)
+                    infocell.configureCell(data: txtFieldModel[indexPath.row], pickerData: pickerData)
                     
                     infocell.txtFieldValueHandler = { [weak self] textField in
                         
@@ -132,6 +134,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                         
                         guard let `self` = self else { return }
                         self.isValidate = isValidated
+                        self.txtFieldModel[indexPath.row].isValid = isValidated
                     }
                     return infocell
                 }
@@ -217,6 +220,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                 if isFromEdit {
                     multiPhotoCell.configureCell(images: userMultiPhoto[index].images ?? [UIImage]())
                 }
+                
                 multiPhotoCell.multiImgHandler = { [weak self] imgs in
                     
                     guard let `self` = self else { return }
@@ -276,17 +280,10 @@ extension TblFormView {
         guard let indexMobNo = txtFieldModel.firstIndex(where: { $0.placeHolder == placeHolderMobNo }) else { return }
         let mobNO = txtFieldModel[indexMobNo].value ?? "123"
         
-        guard let indexDob = txtFieldModel.firstIndex(where: { $0.placeHolder == placeHolderDob }) else { return }
-        let dob = txtFieldModel[indexDob].value ?? ""
-        
-        guard let indexDept = txtFieldModel.firstIndex(where: { $0.placeHolder == placeHolderDept }) else { return }
-        
-        let dept = txtFieldModel[indexDept].value ?? ""
-        
         let isCheckBoxChecked = checkBoxModel.isChecked ?? false
         
         // Validation
-        if name.isEmpty || email.isEmpty || password.isEmpty || mobNO.isEmpty || dob.isEmpty || dept.isEmpty {
+        if name.isEmpty || email.isEmpty || password.isEmpty || mobNO.isEmpty {
             self.parentContainerViewController()?.alertView(title: "", message: "Please Enter All Data", style: .alert, actions: [.Ok], handler: nil)
             
         } else if isCheckBoxChecked == false {

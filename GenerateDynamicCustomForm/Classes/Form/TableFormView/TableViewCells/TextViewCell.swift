@@ -9,8 +9,11 @@ import UIKit
 
 final class TextViewCell: UITableViewCell {
     
-    @IBOutlet weak var imgAddress: UIImageView!
+    @IBOutlet weak private var vwAddressLine: UIView!
+    @IBOutlet weak private var lblPlaceHolder: UILabel!
     @IBOutlet weak private var txtViewAddress: UITextView!
+    
+    var placeHolder2 = ""
     
     // Completion Handler For TextField's Value Changed
     var txtViewValueHandler: ((_ txtView: UITextView) -> Void)?
@@ -21,9 +24,7 @@ final class TextViewCell: UITableViewCell {
         txtViewAddress.delegate = self
     }
     
-    deinit {
-        print("TextViewCell is deinitialized")
-    }
+    deinit {}
 }
 
 
@@ -33,9 +34,12 @@ extension TextViewCell {
     
     func configuareCell(info: FormModel, isEdit: Bool) {
         
+        placeHolder2 = info.placeHolder2 ?? ""
         txtViewAddress.text = info.value
-        txtViewAddress.placeholder = info.placeHolder
-        txtViewAddress.placeholderColor = info.placeHolderColor
+        lblPlaceHolder.text = info.placeHolder
+        lblPlaceHolder.textColor = info.placeHolderColor
+        txtViewAddress.placeholder = info.placeHolder2
+        txtViewAddress.placeholderColor = .lightGray
         txtViewAddress.keyboardType = info.keyboardType ?? .default
     }
 }
@@ -52,9 +56,10 @@ extension TextViewCell: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         
         if txtViewAddress.text == "" {
-            txtViewAddress.placeholder = "Enter Address"
-            txtViewAddress.placeholderColor = UIColor.white.withAlphaComponent(0.6)
+            txtViewAddress.placeholder = placeHolder2
+            txtViewAddress.placeholderColor = UIColor.lightGray
         }
+        
         if txtViewValueHandler != nil {
             txtViewValueHandler?(textView)
         }

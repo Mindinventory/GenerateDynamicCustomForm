@@ -9,16 +9,18 @@ import UIKit
 
 final class InfoCell: UITableViewCell {
     
+    @IBOutlet weak private var vwLine: UIView!
+    @IBOutlet weak private var lblPlaceHolder: UILabel!
     @IBOutlet weak private var btnSelection: UIButton!
     @IBOutlet weak private var btnPassword: UIButton!
     @IBOutlet weak private var txtField: UITextField!
     
     var isValidate: Bool?
+    var plcHolder = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        txtField.delegate = self
     }
     
     var formType = TextFieldType.normal
@@ -37,44 +39,45 @@ final class InfoCell: UITableViewCell {
 extension InfoCell {
     
     // Configure Cell According to TextField Type
-    func configureCell(data: FormModel, pickerData: [String], isValid: Bool) {
+    func configureCell(data: FormModel, pickerData: [String]) {
         
         formType = data.txtFieldType ?? .normal
-        
+        plcHolder = data.placeHolder ?? ""
         btnPassword.isHidden = true
         btnSelection.isHidden = true
+        txtField.placeholder = data.placeHolder2
+        txtField.keyboardType = data.keyboardType ?? .default
+        txtField.isSecureTextEntry = data.isSecure ?? false
+        txtField.inputView = nil
+        //txtField.setupLeftImageView(img: UIImage(named: data.leftImgView ?? ""))
         
-        if isValid {
-            txtField.layer.borderColor = UIColor.init(red: 235/255, green: 231/255, blue: 186/255, alpha: 1.0).cgColor
+        if data.isValid ?? true {
+            
             txtField.text = data.value
-            txtField.placeholder = data.placeHolder
-            txtField.placeholderColor = data.placeHolderColor
+            lblPlaceHolder.text = data.placeHolder
+            lblPlaceHolder.textColor = data.placeHolderColor
             
         } else {
             
             if txtField.keyboardType == .emailAddress {
                 
                 txtField.text = ""
-                txtField.placeholder = "Please Enter Valid Email"
-                txtField.placeholderColor = UIColor.white.withAlphaComponent(0.6)
+                self.lblPlaceHolder.text = "Please Enter Valid Email*"
+                self.lblPlaceHolder.textColor = UIColor.red
                 
             } else {
-                txtField.placeholder = "Please Enter Value"
-                txtField.placeholderColor = UIColor.white.withAlphaComponent(0.6)
+                self.lblPlaceHolder.text = "Please Enter \(plcHolder)"
+                self.lblPlaceHolder.textColor = UIColor.red
             }
         }
         
-        txtField.keyboardType = data.keyboardType ?? .default
-        txtField.isSecureTextEntry = data.isSecure ?? false
-        txtField.setupLeftImageView(img: UIImage(named: data.leftImgView ?? ""))
+        switch data.txtFieldType {
         
-        switch data.placeHolder {
-        
-        case placeHolderPassword:
+        case .password:
             
             btnPassword.isHidden = false
             
-        case placeHolderDob:
+        case .dob:
             
             if #available(iOS 13.4, *) {
                 txtField.setDatePickerStyle()
@@ -86,14 +89,14 @@ extension InfoCell {
             txtField.setDatePickerWithDateFormate(dateFormate: "dd/MM/yyyy", defaultDate: Date(), isPrefilledDate: true, selectedDateHandler: { date in
             })
             
-        case placeHolderDept:
+        case .picker:
             
             txtField.setPickerData(arrPickerData: pickerData, pickerDataHandler: { [weak self]  (select, index, component) in
                 guard let `self` = self else { return }
                 self.txtField.text = select as? String
             })
             
-        case placeHolderGender, placeHolderHobbies, placeHolderCountry:
+        case .actionSheet, .selection(_):
             
             btnSelection.isHidden = false
             
@@ -103,17 +106,16 @@ extension InfoCell {
     }
 }
 
-//MARK:- UITextFieldDelegate
+//MARK:- Action
 //MARK:-
-extension InfoCell: UITextFieldDelegate {
+extension InfoCell {
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    @IBAction func onTxtFieldValueChanged(_ sender: UITextField) {
         
         if txtField.text == "" && txtField.keyboardType != .emailAddress {
             
-            txtField.placeholder = "Please Enter Value"
-            txtField.placeholderColor = UIColor.white.withAlphaComponent(0.6)
-            txtField.layer.borderColor = UIColor.red.cgColor
+            lblPlaceHolder.text = "Please Enter \(plcHolder)"
+            lblPlaceHolder.textColor = UIColor.red
             isValidate = false
             txtFieldValidateHandler?(isValidate ?? false)
             txtField.shake()
@@ -125,36 +127,35 @@ extension InfoCell: UITextFieldDelegate {
                 guard let txtEmail = txtField.text else { return }
                 
                 if txtEmail.isValidEmail == false {
+                    
                     txtField.text = ""
-                    txtField.placeholder = "Please Enter Valid Email"
-                    txtField.layer.borderColor = UIColor.red.cgColor
-                    txtField.placeholderColor = UIColor.white.withAlphaComponent(0.6)
+                    lblPlaceHolder.text = "Please Enter Valid Email*"
+                    lblPlaceHolder.textColor = UIColor.red
                     isValidate = false
                     txtFieldValidateHandler?(isValidate ?? false)
                     txtField.shake()
                     
                 } else {
+                    
+                    lblPlaceHolder.text = plcHolder
+                    lblPlaceHolder.textColor = UIColor.darkGray
+                    if txtFieldValueHandler != nil {
+                        txtFieldValueHandler?(txtField)
+                    }
                     isValidate = true
-                    txtField.layer.borderColor = UIColor.init(red: 235/255, green: 231/255, blue: 186/255, alpha: 1.0).cgColor
                     txtFieldValidateHandler?(isValidate ?? true)
                 }
+                
             } else {
+                
                 isValidate = true
-                txtField.layer.borderColor = UIColor.init(red: 235/255, green: 231/255, blue: 186/255, alpha: 1.0).cgColor
+                lblPlaceHolder.text = plcHolder
+                lblPlaceHolder.textColor = UIColor.darkGray
+                if txtFieldValueHandler != nil {
+                    txtFieldValueHandler?(txtField)
+                }
                 txtFieldValidateHandler?(isValidate ?? true)
             }
-        }
-    }
-}
-
-//MARK:- Action
-//MARK:-
-extension InfoCell {
-    
-    @IBAction func onTxtFieldValueChanged(_ sender: UITextField) {
-        
-        if txtFieldValueHandler != nil {
-            txtFieldValueHandler?(txtField)
         }
     }
     
@@ -185,7 +186,9 @@ extension InfoCell {
                 guard let `self` = self else { return }
                 
                 if action.title != "Cancel" {
+                    
                     self.txtField.text = action.title
+                    
                     if self.txtFieldValueHandler != nil {
                         self.txtFieldValueHandler?(self.txtField)
                     }
@@ -204,6 +207,7 @@ extension InfoCell {
                     
                     guard let `self` = self else { return }
                     self.txtField.text = hobbies.joined(separator: ", ")
+                    
                     if self.txtFieldValueHandler != nil {
                         self.txtFieldValueHandler?(self.txtField)
                     }
@@ -214,6 +218,7 @@ extension InfoCell {
                     
                     guard let `self` = self else { return }
                     self.txtField.text = country
+                    
                     if self.txtFieldValueHandler != nil {
                         self.txtFieldValueHandler?(self.txtField)
                     }
@@ -225,6 +230,10 @@ extension InfoCell {
         }
     }
 }
+
+//MARK:- Check Valid Email Address
+//MARK:-
+
 extension String {
     
     var isValidEmail: Bool {

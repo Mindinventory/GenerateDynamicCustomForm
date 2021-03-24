@@ -21,7 +21,6 @@ final class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.shadowImage = UIImage()
         initialize()
     }
     
@@ -34,8 +33,22 @@ extension HomeVC {
     
     private func initialize() {
         
-        btnShow.shadow(color: .black, shadowOffset: CGSize(width: 5.0, height: 5.0), shadowRadius: 10.0)
-        btnRegister.shadow(color: .black, shadowOffset: CGSize(width: 5.0, height: 5.0), shadowRadius: 10.0)
+        navigationController?.navigationBar.shadowImage = UIImage()
+//        let img = UIImage(named: "img5")?.alpha(0.8)
+//        navigationController?.navigationBar.setBackgroundImage(img, for: .default)
+        btnShow.shadow(color: .black, shadowOffset: CGSize(width: 5.0, height: 5.0), shadowRadius: 8.0, shadowOpacity: 0.5)
+        btnRegister.shadow(color: .black, shadowOffset: CGSize(width: 5.0, height: 5.0), shadowRadius: 8.0, shadowOpacity: 0.5)
+    }
+}
+
+extension UIImage {
+
+    func alpha(_ value:CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
     }
 }
 

@@ -43,6 +43,7 @@ extension FormVC {
     private func initialize() {
         
         title = "Form"
+        navigationController?.navigationBar.topItem?.title = ""
         
         if isFromEdit {
             
@@ -69,25 +70,25 @@ extension FormVC {
                 
                 FormModel(formType: .profileImage), // Profile Image
                 
-                FormModel(formType: .textField, txtFieldType: .normal, value: "", placeHolder: placeHolderName, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_user", rightImgView: nil, isEnabled: true, keyboardType: .default), // Name
+                FormModel(formType: .textField, txtFieldType: .normal, value: "", placeHolder: placeHolderName, placeHolder2: "John Doe", placeHolderColor: .darkGray, leftImgView: "ic_user", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Name
                 
-                FormModel(formType: .textField, txtFieldType: .normal, value: "", placeHolder: placeHolderEmail, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_email", rightImgView: nil, isEnabled: true, keyboardType: .emailAddress), // Email
+                FormModel(formType: .textField, txtFieldType: .normal, value: "", placeHolder: placeHolderEmail, placeHolder2: "name@example.com", placeHolderColor: .darkGray, leftImgView: "ic_email", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .emailAddress, isValid: true), // Email
                 
-                FormModel(formType: .textField, txtFieldType: .password, value: "", placeHolder: placeHolderPassword, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_password", rightImgView: nil, isEnabled: true, isSecure: true, keyboardType: .default), // Password
+                FormModel(formType: .textField, txtFieldType: .password, value: "", placeHolder: placeHolderPassword, placeHolder2: "*******", placeHolderColor: .darkGray, leftImgView: "ic_password", rightImgView: nil, isEnabled: true, isSecure: true, keyboardType: .default, isValid: true), // Password
                 
-                FormModel(formType: .textField, txtFieldType: .mobileNumber(false), value: "", placeHolder: placeHolderMobNo, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: nil, rightImgView: nil, isEnabled: true, keyboardType: .phonePad), // Mobile number
+                FormModel(formType: .textField, txtFieldType: .mobileNumber(false), value: "", placeHolder: placeHolderMobNo, placeHolder2: "1234567890", placeHolderColor: .darkGray, leftImgView: nil, rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .phonePad, isValid: true), // Mobile number
                 
-                FormModel(formType: .textView, value: "", placeHolder: placeHolderAddress, placeHolderColor: UIColor.white.withAlphaComponent(0.6), isEnabled: true, keyboardType: .default), // Address (TextView)
+                FormModel(formType: .textView, value: "", placeHolder: placeHolderAddress, placeHolder2: "21  Satelite Shopping Centre.", placeHolderColor: .darkGray, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Address (TextView)
                 
-                FormModel(formType: .textField, txtFieldType: .dob, value: "", placeHolder: placeHolderDob, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_calender"), // Date of Birth (Date Picker)
+                FormModel(formType: .textField, txtFieldType: .dob, value: "", placeHolder: placeHolderDob, placeHolder2: "DD/MM/YYYY", placeHolderColor: .darkGray, leftImgView: "ic_calender", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Date of Birth (Date Picker)
                 
-                FormModel(formType: .textField, txtFieldType: .actionSheet, value: "", placeHolder: placeHolderGender, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_gender"), // Gender (Action Sheet)
+                FormModel(formType: .textField, txtFieldType: .actionSheet, value: "", placeHolder: placeHolderGender, placeHolder2: "Select Male or Female", placeHolderColor: .darkGray, leftImgView: "ic_gender", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Gender (Action Sheet)
                 
-                FormModel(formType: .textField, txtFieldType: .selection(false), value: "", placeHolder: placeHolderCountry, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_flag"), // Countries India or Other
+                FormModel(formType: .textField, txtFieldType: .selection(false), value: "", placeHolder: placeHolderCountry, placeHolder2: "Select Conutry", placeHolderColor: .darkGray, leftImgView: "ic_flag", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Countries India or Other
                 
-                FormModel(formType: .textField, txtFieldType: .selection(true), value: "", placeHolder: placeHolderHobbies, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_food"), // Hobbies (Multiple Selection View)
+                FormModel(formType: .textField, txtFieldType: .selection(true), value: "", placeHolder: placeHolderHobbies, placeHolder2: "Select Hobbies", placeHolderColor: .darkGray, leftImgView: "ic_food", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Hobbies (Multiple Selection View)
                 
-                FormModel(formType: .textField, txtFieldType: .picker, value: "", placeHolder: placeHolderDept, placeHolderColor: UIColor.white.withAlphaComponent(0.6), leftImgView: "ic_dept", rightImgView: nil, isEnabled: true, keyboardType: .default), // Department (Picker)
+                FormModel(formType: .textField,txtFieldType: .picker, value: "", placeHolder: placeHolderDept, placeHolder2: "Select Department", placeHolderColor: .darkGray, leftImgView: "ic_dept", rightImgView: nil, isEnabled: true, isSecure: false, keyboardType: .default, isValid: true), // Department (Picker)
                 
                 FormModel(formType: .multiPhoto), // Multiple Photos
                 

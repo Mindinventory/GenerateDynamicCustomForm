@@ -49,17 +49,13 @@ extension UIView {
 
 extension UIView {
     
-    func shadow(
-        color: UIColor,
-        shadowOffset: CGSize,
-        shadowRadius: CGFloat
-    ) {
+    func shadow(color: UIColor, shadowOffset: CGSize, shadowRadius: CGFloat, shadowOpacity: Float) {
         
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = shadowOffset
         self.layer.shadowRadius = shadowRadius
-        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOpacity = shadowOpacity
         self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
         
         self.layer.shouldRasterize = true

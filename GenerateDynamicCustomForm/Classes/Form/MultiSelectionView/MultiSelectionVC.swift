@@ -38,7 +38,7 @@ extension MultiSelectionVC {
     private func initialize() {
         
         view.backgroundColor = UIColor.black.withAlphaComponent(0.50)
-        btnDone.shadow(color: .black, shadowOffset: CGSize(width: 5.0, height: 5.0), shadowRadius: 10.0)
+        btnDone.shadow(color: .black, shadowOffset: CGSize(width: 5.0, height: 5.0), shadowRadius: 10.0, shadowOpacity: 0.5)
         tblMultiSelection.hobbies = ["Movies", "Cricket", "Music", "Food", "Dance", "Game", "Travel"]
         tblMultiSelection.countries = ["India", "Other"]
         tblMultiSelection.isMultipleSelection = isMultipleSelection

@@ -459,8 +459,8 @@ extension UITextField {
         _leftView.frame = CGRect(
             x: 0,
             y: 0,
-            width: 30,
-            height: 30
+            width: 40,
+            height: 32
         )
         
         leftImageView.frame = CGRect(
