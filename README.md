@@ -45,7 +45,7 @@ In this form there are various textFields like Username, email, Password, etc. i
 
 - To use this Custom Form, just download this demo and copy files to your project.
 
-# By Apple 
+## By Apple 
 
 - Xcode 12
 - iOS 11+
