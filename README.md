@@ -28,10 +28,10 @@ In this form there are various textFields like Username, email, Password, etc. i
 
 ## Features
 
-- TextField with different types like email, password, mobile number.
-- Profile Photo and Banner selection.
+- TextField with different types like email, password, mobile number, etc.
+- Profile Photo and Banner image selection.
 - TextView for Address field.
-- DatePicker for Date of Birth field.
+- DatePicker for Date of Birth.
 - Picker for department selection.
 - ActionSheet for Gender selection.
 - PopUpView for selecting multiple/single values.
