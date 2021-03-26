@@ -34,7 +34,7 @@ In this form there are various textFields like Username, email, Password, etc. i
 - DatePicker for Date of Birth field.
 - Picker for department selection.
 - ActionSheet for Gender selection.
-- PopView for selecting multiple/single values.
+- PopUpView for selecting multiple/single values.
 - Multiple photos selection.
 - Switch control for toggling values.
 - Checkbox for accepting terms and conditions.
