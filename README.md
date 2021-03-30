@@ -73,8 +73,42 @@ Based on that you can create different textfield with different keyboard type an
 
 Based on this Structure you will be able to create a Model which will be used by Tableview. Now just assign data into Model according to your needs. After this you have to just pass enum case in cellForRow and accordingly pass model data into cell to generate Form.
 
-![image1](/Media/enum.png)
-![image2](/Media/struct.png)
+enum ControlType {
+    
+    case checkBox
+    case textField
+    case profileImage
+    case switchType
+    case textView
+    case multiPhoto
+}
+
+enum TextFieldType: Equatable {
+    
+    case normal
+    case password
+    case dob
+    case picker
+    case actionSheet
+    case selection(Bool?) // Pass true or false for Allowing multiple Selection
+    case mobileNumber(Bool?) //Pass true or false for Country Flag
+}
+
+struct FormModel {
+    
+    var controlType: ControlType
+    var txtFieldType: TextFieldType?
+    var value: String?
+    var placeHolder: String?
+    var placeHolder2: String?
+    var placeHolderColor: UIColor?
+    var leftImgView: String?
+    var rightImgView: String?
+    var isEnabled: Bool?
+    var isSecure: Bool?
+    var keyboardType: UIKeyboardType?
+    var isValid: Bool?
+}
 
 ## By Apple 
 
