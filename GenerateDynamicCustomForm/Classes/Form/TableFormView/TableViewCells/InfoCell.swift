@@ -23,7 +23,7 @@ final class InfoCell: UITableViewCell {
         
     }
     
-    var formType = TextFieldType.normal
+    var controlType = TextFieldType.normal
     
     // Completion Handler For TextField's Value Changed
     var txtFieldValueHandler: ((_ txtField: UITextField) -> Void)?
@@ -41,7 +41,7 @@ extension InfoCell {
     // Configure Cell According to TextField Type
     func configureCell(data: FormModel, pickerData: [String]) {
         
-        formType = data.txtFieldType ?? .normal
+        controlType = data.txtFieldType ?? .normal
         plcHolder = data.placeHolder ?? ""
         btnPassword.isHidden = true
         btnSelection.isHidden = true
@@ -177,7 +177,7 @@ extension InfoCell {
     
     @IBAction func onSelection(_ sender: UIButton) {
         
-        switch formType {
+        switch controlType {
         
         case .actionSheet:
             

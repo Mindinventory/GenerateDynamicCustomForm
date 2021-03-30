@@ -22,7 +22,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRy-7B-xZV">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.89074176537347738" blue="0.91521673956437477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.57904256438557855" green="0.77603573484342225" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="bRy-7B-xZV" secondAttribute="height" multiplier="3:1" id="ab2-d9-UIN"/>
                                         </constraints>
@@ -47,7 +47,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zA-UC-pq5">
                                         <rect key="frame" x="0.0" y="70" width="150" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.89074176537347738" blue="0.91521673956437477" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.57904256438557855" green="0.77603573484342225" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="3zA-UC-pq5" secondAttribute="height" multiplier="3:1" id="DPk-Oo-ERJ"/>
                                         </constraints>
@@ -208,7 +208,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.73808074140356517" green="0.66124490599159524" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.81818920080000002" green="0.98181923660000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="8Ry-Al-x9Q" firstAttribute="height" relation="lessThanOrEqual" secondItem="CtG-Uu-krv" secondAttribute="height" multiplier="0.107143" id="3XE-6b-TWm"/>
                                     <constraint firstItem="8Ry-Al-x9Q" firstAttribute="width" relation="lessThanOrEqual" secondItem="CtG-Uu-krv" secondAttribute="width" multiplier="0.3663" id="5AC-hn-kNQ"/>

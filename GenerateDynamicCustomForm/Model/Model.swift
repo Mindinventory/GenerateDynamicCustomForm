@@ -10,7 +10,7 @@ import UIKit
 //MARK:- Model Form
 //MARK:-
 
-enum FormType {
+enum ControlType {
     
     case checkBox
     case textField
@@ -33,7 +33,7 @@ enum TextFieldType: Equatable {
 
 struct FormModel {
     
-    var formType: FormType
+    var controlType: ControlType
     var txtFieldType: TextFieldType?
     var value: String?
     var placeHolder: String?
@@ -59,15 +59,6 @@ struct CheckBoxModel {
 
 struct SwitchModel {
     var isOn: Bool?
-}
-
-struct TextViewModel {
-    
-    var placeHolder: String
-    var placeHolderColor: UIColor?
-    var txt: String?
-    var isEnabled: Bool?
-    var keyboardType: UIKeyboardType?
 }
 
 struct MultiPhotoModel {

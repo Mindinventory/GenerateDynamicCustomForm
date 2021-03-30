@@ -57,7 +57,7 @@ extension TextViewCell: UITextViewDelegate {
         
         if txtViewAddress.text == "" {
             txtViewAddress.placeholder = placeHolder2
-            txtViewAddress.placeholderColor = UIColor.lightGray
+            txtViewAddress.placeholderColor = .lightGray
         }
         
         if txtViewValueHandler != nil {

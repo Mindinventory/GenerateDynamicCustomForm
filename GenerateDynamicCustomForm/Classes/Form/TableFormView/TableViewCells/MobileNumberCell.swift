@@ -78,6 +78,14 @@ extension MobileNumberCell {
             txtMobNoValidateHandler?(isValidate ?? false)
             txtMobNO.shake()
             
+        } else if txtMobNO.text?.count != 10 {
+            
+            lblPlaceHolder.text = "Please Enter Valid Mobile Number *"
+            lblPlaceHolder.textColor = UIColor.red
+            isValidate = false
+            txtMobNoValidateHandler?(isValidate ?? false)
+            txtMobNO.shake()
+            
         } else {
             
             isValidate = true

@@ -9,6 +9,7 @@ import UIKit
 
 final class TblFormView: UITableView {
     
+    //MARK: Properties
     var txtFieldModel = [FormModel]()
     var userData = [[FormModel]]()
     var userImage = [ProfileImageModel]()
@@ -19,7 +20,7 @@ final class TblFormView: UITableView {
     var cntryCode = [String]()
     var index = 0
     var isFromEdit = false
-    var isValidate = false
+    var isValidate = true
     
     private var profileImg = ProfileImageModel()
     private var countryCode: String?
@@ -30,6 +31,7 @@ final class TblFormView: UITableView {
     // Completion Handler for User Data
     var userDataHandler: ((_ txtData: [[FormModel]], _ imgData: [ProfileImageModel], _ checkBoxData: [CheckBoxModel], _ switchData: [SwitchModel], _ userMultiPhoto: [MultiPhotoModel]) -> Void)?
     
+    //MARK: awakeFromNib
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -73,8 +75,8 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Check FormType
-        switch txtFieldModel[indexPath.row].formType {
+        // Check ControlType
+        switch txtFieldModel[indexPath.row].controlType {
         
         case .textField:
             
@@ -85,8 +87,6 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                     if isFromEdit {
                         mobNoCell.cntryCode = countryCode
                     }
-                    
-                    //let isvalid = mobNoCell.isValidate ?? true
                     
                     if txtFieldModel[indexPath.row].txtFieldType == .mobileNumber(true) {
                         mobNoCell.configureCell(data: txtFieldModel[indexPath.row], code: cntryCode, flag: true)
@@ -120,8 +120,6 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                 
                 if let infocell = tableView.dequeueReusableCell(withIdentifier: InfoCell.identifier) as? InfoCell {
                     
-                    //let isvalid = infocell.isValidate ?? true
-                    
                     infocell.configureCell(data: txtFieldModel[indexPath.row], pickerData: pickerData)
                     
                     infocell.txtFieldValueHandler = { [weak self] textField in
@@ -147,6 +145,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                 if isFromEdit {
                     profileCell.configureCell(user: userImage[index].userImg, banner: userImage[index].bannerImg)
                 }
+                
                 profileCell.imgUserHandler = { [weak self] image in
                     
                     guard let `self` = self else { return }
@@ -156,6 +155,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                         self.userImage[self.index].userImg = image
                     }
                 }
+                
                 profileCell.imgBannerHandler = { [weak self] image in
                     
                     guard let `self` = self else { return }
@@ -176,6 +176,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                     checkBoxCell.configureCell(isChecked: userisChecked[index].isChecked ?? false)
                     self.checkBoxModel.isChecked = userisChecked[index].isChecked
                 }
+                
                 checkBoxCell.checkBoxCheckedHandler = { [weak self] checked in
                     
                     guard let `self` = self else { return }
@@ -191,6 +192,7 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                 if isFromEdit {
                     switchCell.configureCell(value: userSwitchValue[index].isOn ?? true)
                 }
+                
                 switchCell.switchHandler = { [weak self] value in
                     
                     guard let `self` = self else { return }
@@ -248,14 +250,12 @@ extension TblFormView: UITableViewDataSource, UITableViewDelegate {
                 
                 self.validateData()
             }
-            
             return footerView
         }
         return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
         return CScreenWidth * ( 60.0 / 320.0)
     }
 }
@@ -284,7 +284,7 @@ extension TblFormView {
         
         // Validation
         if name.isEmpty || email.isEmpty || password.isEmpty || mobNO.isEmpty {
-            self.parentContainerViewController()?.alertView(title: "", message: "Please Enter All Data", style: .alert, actions: [.Ok], handler: nil)
+            self.parentContainerViewController()?.alertView(title: "", message: "Please Enter Required Data", style: .alert, actions: [.Ok], handler: nil)
             
         } else if isCheckBoxChecked == false {
             
