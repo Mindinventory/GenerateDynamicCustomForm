@@ -15,6 +15,12 @@ You can generate a dynamic form view in a few minutes for signup, add a record. 
 ## Preview
 ![video](/Media/form.gif)
 
+<p align="center">
+    <a href="https://www.mindinventory.com" style="pointer-events: stroke;" target="_blank">
+        <img src="/Media/mi.png" width="210" height="50" title="MindInventory">
+    </a>
+</p>
+
 ## Table of content :-
 
 - [Description](#description)
