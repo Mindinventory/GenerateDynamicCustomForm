@@ -1,7 +1,7 @@
-# GenerateDynamicCustomForm
+# Generate Dynamic Custom Form: Create your own form within a minute.
 
 <a href="https://docs.swift.org/swift-book/" style="pointer-events: stroke;" target="_blank">
-<img src="https://img.shields.io/badge/swift-5.0-yellowgreen">
+<img src="https://img.shields.io/badge/swift-5.0-green">
 </a>
 <a href="#" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/platform-iOS-red">
@@ -12,6 +12,7 @@
 
 You can generate a dynamic form view in a few minutes for signup, add a record. Creating a form is very easy.
 
+## Preview
 ![video](/Media/form.gif)
 
 ## Table of content :-
@@ -153,7 +154,7 @@ FormModel(controlType: .checkBox) // Terms and Conditions (CheckBox)
 
 ```
 
-- After this you have to just pass enum case in cellForRow and accordingly pass model data into cell to generate Form.
+- After this you have to just pass enum case in cellForRow and accordingly pass model data into cell to generate Form. - [Preview](#preview)
 
 ## By Apple 
 
