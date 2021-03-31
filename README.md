@@ -17,7 +17,7 @@ You can generate a dynamic form view in a few minutes for signup, add a record. 
 
 <p align="center">
     <a href="https://www.mindinventory.com" style="pointer-events: stroke;" target="_blank">
-        <img src="/Media/mi.png" width="210" height="50" title="MindInventory">
+        <img src="/Media/mi.png" width="210" height="60" title="MindInventory">
     </a>
 </p>
 
