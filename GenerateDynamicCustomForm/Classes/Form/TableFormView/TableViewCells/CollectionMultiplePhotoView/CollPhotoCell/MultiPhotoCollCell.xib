@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aEv-L8-dj6">
-                        <rect key="frame" x="2" y="2" width="96" height="96"/>
+                        <rect key="frame" x="2" y="14" width="84" height="84"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="6"/>
+                                <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,20 +32,38 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB0-dQ-1Tg">
+                        <rect key="frame" x="72" y="0.0" width="28" height="28"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="4q4-Md-MMp"/>
+                            <constraint firstAttribute="height" constant="28" id="V7e-fd-qXz"/>
+                        </constraints>
+                        <state key="normal" image="ic_remove4"/>
+                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="aEv-L8-dj6" secondAttribute="bottom" constant="2" id="0Bx-44-0G0"/>
-                <constraint firstAttribute="trailing" secondItem="aEv-L8-dj6" secondAttribute="trailing" constant="2" id="B2a-LO-aWD"/>
-                <constraint firstItem="aEv-L8-dj6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="GZ8-ZD-er8"/>
-                <constraint firstItem="aEv-L8-dj6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="WEy-IU-rJ2"/>
+                <constraint firstItem="eB0-dQ-1Tg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="44W-T1-eGV"/>
+                <constraint firstItem="aEv-L8-dj6" firstAttribute="trailing" secondItem="eB0-dQ-1Tg" secondAttribute="centerX" id="5S9-4y-MkX"/>
+                <constraint firstAttribute="bottom" secondItem="aEv-L8-dj6" secondAttribute="bottom" constant="2" id="OzJ-0H-lHx"/>
+                <constraint firstAttribute="trailing" secondItem="eB0-dQ-1Tg" secondAttribute="trailing" id="VR7-nP-H1r"/>
+                <constraint firstItem="aEv-L8-dj6" firstAttribute="top" secondItem="eB0-dQ-1Tg" secondAttribute="centerY" id="rJg-S0-bDw"/>
+                <constraint firstItem="aEv-L8-dj6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="uJF-vN-dLX"/>
             </constraints>
             <connections>
+                <outlet property="btnRemove" destination="eB0-dQ-1Tg" id="E7Q-CE-gwC"/>
                 <outlet property="imgPhotos" destination="aEv-L8-dj6" id="Qsa-hf-wmv"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="84.375"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="ic_remove4" width="32" height="32"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

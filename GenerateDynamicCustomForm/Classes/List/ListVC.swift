@@ -31,6 +31,7 @@ extension ListVC {
     private func initialize() {
         
         title = "Users"
+        navigationController?.navigationBar.topItem?.title = ""
         
         tblUserList.userData = userData
         tblUserList.userImage = userImage

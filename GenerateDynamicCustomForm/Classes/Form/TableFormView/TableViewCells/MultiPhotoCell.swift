@@ -82,5 +82,13 @@ extension MultiPhotoCell {
     private func initializeCollView(multiImg: [UIImage]) {
         
         collMultiplePhoto.multiImages = multiImg
+        
+        collMultiplePhoto.multiImgRemovalHandler = { [weak self] images in
+            
+            guard let `self` = self else { return }
+            self.images = images
+            self.lblPhotosCount.text = "\(self.images.count) Photos Selected"
+            self.multiImgHandler?(self.images)
+        }
     }
 }

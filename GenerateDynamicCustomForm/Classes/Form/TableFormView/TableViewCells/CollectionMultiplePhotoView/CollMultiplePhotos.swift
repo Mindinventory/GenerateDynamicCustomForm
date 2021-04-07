@@ -15,23 +15,8 @@ final class CollMultiplePhotos: UICollectionView {
         }
     }
     
-    override var contentSize:CGSize {
-        didSet {
-            self.invalidateIntrinsicContentSize()
-        }
-    }
-    
-    //    override func layoutSubviews() {
-    //        super.layoutSubviews()
-    //
-    //        if bounds.size != intrinsicContentSize {
-    //            self.invalidateIntrinsicContentSize()
-    //        }
-    //    }
-    
-    override var intrinsicContentSize: CGSize {
-        return collectionViewLayout.collectionViewContentSize
-    }
+    // Completion Handler For UIImage's Value Changed
+    var multiImgRemovalHandler: ((_ images: [UIImage]) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -66,6 +51,14 @@ extension CollMultiplePhotos: UICollectionViewDelegate, UICollectionViewDataSour
         if let multiPhotoCollCell = collectionView.dequeueReusableCell(withReuseIdentifier: MultiPhotoCollCell.identifier, for: indexPath) as? MultiPhotoCollCell {
             
             multiPhotoCollCell.configureCell(image: multiImages[indexPath.row])
+            
+            multiPhotoCollCell.btnRemove.touchUpInside { [weak self] sender in
+                
+                guard let `self` = self else { return }
+                self.multiImages.remove(at: indexPath.row)
+                self.reloadData()
+                self.multiImgRemovalHandler?(self.multiImages)
+            }
             
             return multiPhotoCollCell
         }

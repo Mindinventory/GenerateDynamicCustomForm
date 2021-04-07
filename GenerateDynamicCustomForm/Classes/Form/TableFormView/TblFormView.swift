@@ -53,6 +53,7 @@ extension TblFormView {
         dataSource = self
         estimatedRowHeight = 160.0
         rowHeight = UITableView.automaticDimension
+        
         register(ProfileCell.nib, forCellReuseIdentifier: ProfileCell.identifier)
         register(InfoCell.nib, forCellReuseIdentifier: InfoCell.identifier)
         register(MobileNumberCell.nib, forCellReuseIdentifier: MobileNumberCell.identifier)
