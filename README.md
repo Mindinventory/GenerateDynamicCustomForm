@@ -1,7 +1,7 @@
 # Generate Dynamic Custom Form: Create your own form within a minute.
 
 <a href="https://docs.swift.org/swift-book/" style="pointer-events: stroke;" target="_blank">
-<img src="https://img.shields.io/badge/swift-5.0-green">
+<img src="https://img.shields.io/badge/swift-5.0-brightgreen">
 </a>
 <a href="#" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/platform-iOS-red">
@@ -14,6 +14,12 @@ You can generate a dynamic form view in a few minutes for signup, add a record. 
 
 ## Preview
 ![video](/Media/form.gif)
+
+<p align="center">
+    <a href="https://www.mindinventory.com" style="pointer-events: stroke;" target="_blank">
+        <img src="/Media/mi.png" width="210" height="66" title="MindInventory">
+    </a>
+</p>
 
 ## Table of content :-
 
