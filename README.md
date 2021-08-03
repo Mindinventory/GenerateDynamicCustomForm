@@ -6,7 +6,7 @@
 <a href="#" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/platform-iOS-red">
 </a>
-<a href="https://github.com/ashishpatelmi/GenerateDynamicCustomForm/blob/main/LICENSE" style="pointer-events: stroke;" target="_blank">
+<a href="https://github.com/Mindinventory/GenerateDynamicCustomForm/blob/main/LICENSE" style="pointer-events: stroke;" target="_blank">
 <img src="https://img.shields.io/badge/licence-MIT.-orange">
 </a>
 
